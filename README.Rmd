@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Modal dialogs for R Shiny via [Micromodal.js](https://github.com/Ghosh/micromodal).

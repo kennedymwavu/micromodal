@@ -7,6 +7,7 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![R-CMD-check](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Modal dialogs for R Shiny via
@@ -32,5 +33,5 @@ This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-07-24 03:02:25 EAT"
+#> [1] "2023-07-31 01:16:36 EAT"
 ```
