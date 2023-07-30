@@ -5,7 +5,7 @@
 #' @param content The modal's content
 #' @param footer The modal's footer
 #' @return [shiny::tagList()]
-#'
+#' @export
 micromodal <- \(
   id,
   title = NULL,
@@ -14,38 +14,38 @@ micromodal <- \(
 ) {
   title_id <- paste0(id, "-title")
   main_id <- paste0(id, "-content")
-  modal <- tags$div(
+  modal <- htmltools::tags$div(
     id = id,
     class = "micromodal-slide",
     `aria-hidden` = "true",
-    tags$div(
+    htmltools::tags$div(
       class = "modal__overlay",
       tabindex = "-1",
       `data-micromodal-close` = NA,
-      tags$div(
+      htmltools::tags$div(
         class = "modal__container",
         role = "dialog",
         `aria-modal` = "true",
         `aria-labelledby` = title_id,
-        tags$header(
-          class = "modal__header d-flex justify-content-between align-items-center",
-          tags$h2(
-            class = "modal__title my-0 text-primary",
+        htmltools::tags$header(
+          class = "modal__header",
+          htmltools::tags$h2(
+            class = "modal__title",
             id = title_id,
             title
           ),
-          tags$button(
-            class = "modal__close bg-transparent border-0",
+          htmltools::tags$button(
+            class = "modal__close",
             `aria-label` = "Close modal",
             `data-micromodal-close` = NA
           )
         ),
-        tags$main(
+        htmltools::tags$main(
           class = "modal__content",
           id = main_id,
           content
         ),
-        tags$footer(
+        htmltools::tags$footer(
           class = "modal__footer",
           footer
         )
@@ -53,5 +53,5 @@ micromodal <- \(
     )
   )
 
-  tagList(modal)
+  htmltools::tagList(modal)
 }
