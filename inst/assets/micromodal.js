@@ -1,1 +1,0 @@
-MicroModal.init();

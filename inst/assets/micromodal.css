@@ -1,3 +1,11 @@
+/**************************\
+  Basic Modal Styles
+\**************************/
+
+.modal {
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+}
+
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -20,11 +28,25 @@
   box-sizing: border-box;
 }
 
+.modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .modal__title {
+  margin-top: 0;
+  margin-bottom: 0;
   font-weight: 600;
   font-size: 1.25rem;
   line-height: 1.25;
+  color: #00449e;
   box-sizing: border-box;
+}
+
+.modal__close {
+  background: transparent;
+  border: 0;
 }
 
 .modal__header .modal__close:before { content: "\2715"; }
@@ -42,6 +64,8 @@
   padding-right: 1rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
+  background-color: #e6e6e6;
+  color: rgba(0,0,0,.8);
   border-radius: .25rem;
   border-style: none;
   border-width: 0;
@@ -65,6 +89,11 @@
 .modal__btn:focus, .modal__btn:hover {
   -webkit-transform: scale(1.05);
   transform: scale(1.05);
+}
+
+.modal__btn-primary {
+  background-color: #00449e;
+  color: #fff;
 }
 
 a {
