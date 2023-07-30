@@ -13,5 +13,4 @@ RoxygenNote: 7.2.3
 URL: https://github.com/kennedymwavu/micromodal
 BugReports: https://github.com/kennedymwavu/micromodal/issues
 Imports: 
-    htmltools,
-    shiny
+    htmltools
