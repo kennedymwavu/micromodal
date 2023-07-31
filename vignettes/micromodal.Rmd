@@ -19,6 +19,8 @@ minimal configuration.
 
 ## Example
 
+See [live demo here](https://mwavu.shinyapps.io/micromodal/).
+
 <details>
 <summary>Show code</summary>
 
