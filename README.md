@@ -13,10 +13,6 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 Modal dialogs for R Shiny via
 [Micromodal.js](https://github.com/Ghosh/micromodal).
 
-## ⚠️ WIP
-
-THIS IS A WORK IN PROGRESS, DO NOT USE.
-
 ## Installation
 
 You can install the dev version of `{micromodal}` with:
@@ -33,5 +29,5 @@ This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-07-31 01:16:36 EAT"
+#> [1] "2023-07-31 21:57:03 EAT"
 ```

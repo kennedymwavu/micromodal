@@ -20,10 +20,6 @@ knitr::opts_chunk$set(
 
 Modal dialogs for R Shiny via [Micromodal.js](https://github.com/Ghosh/micromodal).
 
-## ⚠️ WIP
-
-THIS IS A WORK IN PROGRESS, DO NOT USE.
-
 ## Installation
 
 You can install the dev version of `{micromodal}` with:
