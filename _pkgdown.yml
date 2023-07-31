@@ -1,0 +1,7 @@
+url: http://mwavu.com/micromodal/
+template:
+  bootstrap: 5
+  bootswatch: zephyr
+  theme: breeze-light
+navbar:
+    bg: dark
