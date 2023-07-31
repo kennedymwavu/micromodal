@@ -5,8 +5,6 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
@@ -146,5 +144,5 @@ This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-07-31 22:32:32 EAT"
+#> [1] "2023-07-31 22:34:00 EAT"
 ```
