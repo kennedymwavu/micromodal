@@ -14,12 +14,31 @@ knitr::opts_chunk$set(
 )
 ```
 
-The goal of micromodal is to create simple and elegant modal dialogs with
+The goal of micromodal is to create simple and elegant modal dialogs which are 
+[WAI-ARIA guidelines](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal) compliant with
 minimal configuration.
 
-## Example
+Things to keep in mind:
+
+1. The modal's trigger (usually a button or a link) must have the attribute
+`data-micromodal-trigger` with a value of the modal's id. So if the modal has the id "modal-1", then you will have:
+
+```r
+`data-micromodal-trigger` = "modal-1"
+```
+
+2. If you need to add something to dismiss the modal (eg. button or link), give
+it the attribute `data-micromodal-close`. In `{shiny}` this is the equivalent of:
+
+```r
+`data-micromodal-close` = NA
+```
+    
+## Examples
 
 See [live demo here](https://mwavu.shinyapps.io/micromodal/).
+
+### Simple usage
 
 <details>
 <summary>Show code</summary>
