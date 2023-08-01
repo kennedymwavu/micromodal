@@ -145,6 +145,107 @@ ui <- bslib::page(
     )
   )
 )
+
+shinyApp(ui, server)
 ```
 
 </details>
+
+### Usage with uiOutput + renderUI
+
+#### I.
+
+<details>
+<summary>Show example I</summary>
+
+```r
+library(shiny)
+library(micromodal)
+
+ui <- fluidPage(
+  use_micromodal(),
+  selectInput(
+    inputId = "selector",
+    label = "Pick a letter",
+    choices = letters
+  ),
+  actionButton(
+    inputId = "trigger",
+    label = "Trigger modal",
+    `data-micromodal-trigger` = "modal-1"
+  ),
+  uiOutput(outputId = "mymodal")
+)
+
+server <- \(input, output, session) {
+  output$mymodal <- renderUI({
+    tagList(
+      micromodal(
+        id = "modal-1",
+        title = "Rendered serverside",
+        content = tagList(
+          tags$p(
+            "You selected the letter '",
+            input$selector,
+            "'"
+          )
+        )
+      )
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+</details>
+
+#### II.
+
+<details>
+<summary>Show example II</summary>
+
+```r
+library(shiny)
+library(micromodal)
+
+ui <- fluidPage(
+  use_micromodal(),
+  selectInput(
+    inputId = "selector",
+    label = "Pick a letter",
+    choices = letters
+  ),
+  uiOutput(outputId = "mymodal")
+)
+
+server <- \(input, output, session) {
+  output$mymodal <- renderUI({
+    tagList(
+      actionButton(
+        inputId = "trigger",
+        label = "Trigger modal",
+        `data-micromodal-trigger` = "modal-1"
+      ),
+      micromodal(
+        id = "modal-1",
+        title = "Rendered serverside",
+        content = tagList(
+          tags$p(
+            "You selected the letter '",
+            input$selector,
+            "'"
+          )
+        )
+      )
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+</details>
+
+### Inside modules
+
