@@ -10,10 +10,5 @@ use_micromodal <- \() {
       call. = FALSE
     )
   }
-  htmltools::tagList(
-    get_dependencies(),
-    htmltools::tags$script(
-      htmltools::HTML("$(document).ready(function() {MicroModal.init();});")
-    )
-  )
+  htmltools::tagList(get_dependencies())
 }

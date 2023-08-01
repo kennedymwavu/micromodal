@@ -53,5 +53,11 @@ micromodal <- \(
     )
   )
 
-  htmltools::tagList(modal)
+  htmltools::tagList(
+    modal,
+    # (re-)initialize Micromodal:
+    htmltools::tags$script(
+      htmltools::HTML("$(document).ready(function() {MicroModal.init();});")
+    )
+  )
 }
