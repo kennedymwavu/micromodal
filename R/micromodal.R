@@ -16,7 +16,7 @@ micromodal <- \(
   main_id <- paste0(id, "-content")
   modal <- htmltools::tags$div(
     id = id,
-    class = "micromodal-slide",
+    class = "modal micromodal-slide",
     `aria-hidden` = "true",
     htmltools::tags$div(
       class = "modal__overlay",
