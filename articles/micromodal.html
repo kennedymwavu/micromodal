@@ -74,16 +74,40 @@
 
     
     
-<p>The goal of micromodal is to create simple and elegant modal dialogs
-with minimal configuration.</p>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h2>
+<p>The goal of micromodal is to create simple and elegant modal dialogs
+which are <a href="https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal" class="external-link">WAI-ARIA
+guidelines</a> compliant with minimal configuration.</p>
+<p>Things to keep in mind:</p>
+<ol style="list-style-type: decimal">
+<li>The modal’s trigger (usually a button or a link) must have the
+attribute <code>data-micromodal-trigger</code> with a value of the
+modal’s id. So if the modal has the id “modal-1”, then you will
+have:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">`data-micromodal-trigger`</span> <span class="op">=</span> <span class="st">"modal-1"</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>If you need to add something to dismiss the modal (eg. button or
+link), give it the attribute <code>data-micromodal-close</code>. In
+<a href="https://shiny.posit.co/" class="external-link">shiny</a> this is the equivalent of:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">`data-micromodal-close`</span> <span class="op">=</span> <span class="cn">NA</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
 <p>See <a href="https://mwavu.shinyapps.io/micromodal/" class="external-link">live demo
 here</a>.</p>
-<details><summary>
-Show code
-</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="simple-usage">Simple usage<a class="anchor" aria-label="anchor" href="#simple-usage"></a>
+</h3>
+<p>Though a bit long, this example clearly depicts all there is to know
+about using <a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span>
 <span></span>
@@ -103,14 +127,14 @@ Show code
 <span>      class <span class="op">=</span> <span class="st">"container my-5"</span>,</span>
 <span>      <span class="va">tags</span><span class="op">$</span><span class="fu">h1</span><span class="op">(</span><span class="st">"Micromodal.js in Shiny"</span>, class <span class="op">=</span> <span class="st">"mb-5"</span><span class="op">)</span>,</span>
 <span>      <span class="co"># trigger for "modal-1"</span></span>
-<span>      <span class="fu">actionButton</span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span>
 <span>        inputId <span class="op">=</span> <span class="st">"show_modal_1"</span>,</span>
 <span>        label <span class="op">=</span> <span class="st">"Exhibit 1"</span>,</span>
 <span>        class <span class="op">=</span> <span class="st">"btn-outline-primary px-3"</span>,</span>
 <span>        `data-micromodal-trigger` <span class="op">=</span> <span class="st">"modal-1"</span></span>
 <span>      <span class="op">)</span>,</span>
 <span>      <span class="co"># trigger for "modal-2"</span></span>
-<span>      <span class="fu">actionButton</span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span>
 <span>        inputId <span class="op">=</span> <span class="st">"show_modal_2"</span>,</span>
 <span>        label <span class="op">=</span> <span class="st">"Exhibit 2"</span>,</span>
 <span>        class <span class="op">=</span> <span class="st">"btn-outline-primary px-3"</span>,</span>
@@ -121,26 +145,26 @@ Show code
 <span>    <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
 <span>      id <span class="op">=</span> <span class="st">"modal-1"</span>,</span>
 <span>      title <span class="op">=</span> <span class="st">"🔒 Login"</span>,</span>
-<span>      content <span class="op">=</span> <span class="fu">tagList</span><span class="op">(</span></span>
-<span>        <span class="fu">textInput</span><span class="op">(</span></span>
+<span>      content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html" class="external-link">textInput</a></span><span class="op">(</span></span>
 <span>          inputId <span class="op">=</span> <span class="st">"name"</span>,</span>
 <span>          label <span class="op">=</span> <span class="st">"Name"</span>,</span>
 <span>          width <span class="op">=</span> <span class="st">"400px"</span></span>
 <span>        <span class="op">)</span>,</span>
-<span>        <span class="fu">passwordInput</span><span class="op">(</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/passwordInput.html" class="external-link">passwordInput</a></span><span class="op">(</span></span>
 <span>          inputId <span class="op">=</span> <span class="st">"password"</span>,</span>
 <span>          label <span class="op">=</span> <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span>
 <span>            <span class="va">tags</span><span class="op">$</span><span class="fu">span</span><span class="op">(</span><span class="st">"Password"</span><span class="op">)</span>,</span>
 <span>            <span class="va">tags</span><span class="op">$</span><span class="fu">span</span><span class="op">(</span><span class="st">"(required)"</span>, class <span class="op">=</span> <span class="st">"text-muted fw-light"</span><span class="op">)</span></span>
 <span>          <span class="op">)</span>,</span>
 <span>          width <span class="op">=</span> <span class="st">"400px"</span></span>
-<span>        <span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">tagAppendAttributes</span><span class="op">(</span>class <span class="op">=</span> <span class="st">"mb-0"</span><span class="op">)</span>,</span>
+<span>        <span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagAppendAttributes.html" class="external-link">tagAppendAttributes</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"mb-0"</span><span class="op">)</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span>
 <span>          <span class="st">"Must be atleast 6 characters long."</span>,</span>
 <span>          class <span class="op">=</span> <span class="st">"text-muted fw-light"</span></span>
 <span>        <span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      footer <span class="op">=</span> <span class="fu">tagList</span><span class="op">(</span></span>
+<span>      footer <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">button</span><span class="op">(</span></span>
 <span>          class <span class="op">=</span> <span class="st">"modal__btn modal__btn-primary"</span>,</span>
 <span>          <span class="st">"Continue"</span></span>
@@ -158,7 +182,7 @@ Show code
 <span>    <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
 <span>      id <span class="op">=</span> <span class="st">"modal-2"</span>,</span>
 <span>      title <span class="op">=</span> <span class="st">"Micromodal 🔥"</span>,</span>
-<span>      content <span class="op">=</span> <span class="fu">tagList</span><span class="op">(</span></span>
+<span>      content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"This is a completely accessible modal."</span><span class="op">)</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
 <span>          <span class="st">"Try hitting the"</span>,</span>
@@ -170,7 +194,7 @@ Show code
 <span>        <span class="op">)</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"*"</span>, <span class="va">tags</span><span class="op">$</span><span class="fu">code</span><span class="op">(</span><span class="st">"alt + tab"</span><span class="op">)</span>, <span class="st">"in safari"</span><span class="op">)</span></span>
 <span>      <span class="op">)</span>,</span>
-<span>      footer <span class="op">=</span> <span class="fu">tagList</span><span class="op">(</span></span>
+<span>      footer <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">button</span><span class="op">(</span></span>
 <span>          class <span class="op">=</span> <span class="st">"modal__btn modal__btn-primary"</span>,</span>
 <span>          <span class="st">"Continue"</span></span>
@@ -184,10 +208,163 @@ Show code
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span></code></pre></div>
-</details>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
 </div>
-  </main>
+<div class="section level3">
+<h3 id="with-uioutput-renderui">With uiOutput + renderUI<a class="anchor" aria-label="anchor" href="#with-uioutput-renderui"></a>
+</h3>
+<p>If need be, you can render the modal and it’s trigger
+dynamically.</p>
+<div class="section level4">
+<h4 id="i--render-modal">I. Render modal<a class="anchor" aria-label="anchor" href="#i--render-modal"></a>
+</h4>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html" class="external-link">selectInput</a></span><span class="op">(</span></span>
+<span>    inputId <span class="op">=</span> <span class="st">"selector"</span>,</span>
+<span>    label <span class="op">=</span> <span class="st">"Pick a letter"</span>,</span>
+<span>    choices <span class="op">=</span> <span class="va">letters</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span>
+<span>    inputId <span class="op">=</span> <span class="st">"trigger"</span>,</span>
+<span>    label <span class="op">=</span> <span class="st">"Trigger modal"</span>,</span>
+<span>    `data-micromodal-trigger` <span class="op">=</span> <span class="st">"modal-1"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"mymodal"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">mymodal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
+<span>        id <span class="op">=</span> <span class="st">"modal-1"</span>,</span>
+<span>        title <span class="op">=</span> <span class="st">"Rendered serverside"</span>,</span>
+<span>        content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
+<span>            <span class="st">"You selected the letter '"</span>,</span>
+<span>            <span class="va">input</span><span class="op">$</span><span class="va">selector</span>,</span>
+<span>            <span class="st">"'"</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="ii--render-modal-trigger">II. Render modal + trigger<a class="anchor" aria-label="anchor" href="#ii--render-modal-trigger"></a>
+</h4>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html" class="external-link">selectInput</a></span><span class="op">(</span></span>
+<span>    inputId <span class="op">=</span> <span class="st">"selector"</span>,</span>
+<span>    label <span class="op">=</span> <span class="st">"Pick a letter"</span>,</span>
+<span>    choices <span class="op">=</span> <span class="va">letters</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/htmlOutput.html" class="external-link">uiOutput</a></span><span class="op">(</span>outputId <span class="op">=</span> <span class="st">"mymodal"</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">output</span><span class="op">$</span><span class="va">mymodal</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/renderUI.html" class="external-link">renderUI</a></span><span class="op">(</span><span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span>
+<span>        inputId <span class="op">=</span> <span class="st">"trigger"</span>,</span>
+<span>        label <span class="op">=</span> <span class="st">"Trigger modal"</span>,</span>
+<span>        `data-micromodal-trigger` <span class="op">=</span> <span class="st">"modal-1"</span></span>
+<span>      <span class="op">)</span>,</span>
+<span>      <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
+<span>        id <span class="op">=</span> <span class="st">"modal-1"</span>,</span>
+<span>        title <span class="op">=</span> <span class="st">"Rendered serverside"</span>,</span>
+<span>        content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>          <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
+<span>            <span class="st">"You selected the letter '"</span>,</span>
+<span>            <span class="va">input</span><span class="op">$</span><span class="va">selector</span>,</span>
+<span>            <span class="st">"'"</span></span>
+<span>          <span class="op">)</span></span>
+<span>        <span class="op">)</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">}</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+<p><strong>NB: micromodal might not work with other <code>*Output</code>
++ <code>render*</code> eg. <code><a href="https://rdrr.io/pkg/shiny/man/plotOutput.html" class="external-link">plotOutput()</a></code></strong></p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="inside-modules">Inside modules<a class="anchor" aria-label="anchor" href="#inside-modules"></a>
+</h3>
+<p>As far as usage of <a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a> in modules is concerned,
+I only need to remind you of one thing:</p>
+<blockquote>
+<p>It’s always a missing call to <code><a href="https://rdrr.io/pkg/shiny/man/NS.html" class="external-link">NS()</a></code></p>
+</blockquote>
+<p>Thank me later.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># module UI:</span></span>
+<span><span class="va">sayhi_ui</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">id</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">ns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/NS.html" class="external-link">NS</a></span><span class="op">(</span><span class="va">id</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
+<span>    <span class="va">tags</span><span class="op">$</span><span class="fu">h1</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionLink</a></span><span class="op">(</span></span>
+<span>      inputId <span class="op">=</span> <span class="fu">ns</span><span class="op">(</span><span class="st">"sayhi"</span><span class="op">)</span>,</span>
+<span>      label <span class="op">=</span> <span class="st">"Say Hi"</span>,</span>
+<span>      `data-micromodal-trigger` <span class="op">=</span> <span class="fu">ns</span><span class="op">(</span><span class="st">"greetings_modal"</span><span class="op">)</span></span>
+<span>    <span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
+<span>      id <span class="op">=</span> <span class="fu">ns</span><span class="op">(</span><span class="st">"greetings_modal"</span><span class="op">)</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Greetings folks!"</span>,</span>
+<span>      content <span class="op">=</span> <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
+<span>        <span class="st">"I'd like to thank you for joining us here today."</span></span>
+<span>      <span class="op">)</span></span>
+<span>    <span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="co"># module server is not necessary in our case, just putting it here </span></span>
+<span><span class="co"># for formality:</span></span>
+<span><span class="va">sayhi_server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">id</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/moduleServer.html" class="external-link">moduleServer</a></span><span class="op">(</span></span>
+<span>    id <span class="op">=</span> <span class="va">id</span>,</span>
+<span>    module <span class="op">=</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      </span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/page.html" class="external-link">page</a></span><span class="op">(</span></span>
+<span>  title <span class="op">=</span> <span class="st">"In Modules"</span>,</span>
+<span>  theme <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/bs_theme.html" class="external-link">bs_theme</a></span><span class="op">(</span>version <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="../reference/use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span>
+<span>    class <span class="op">=</span> <span class="st">"container"</span>,</span>
+<span>    <span class="fu">sayhi_ui</span><span class="op">(</span><span class="st">"hi"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 

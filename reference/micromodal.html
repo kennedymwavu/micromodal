@@ -76,11 +76,148 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p><code>shiny::tagList()</code></p>
+<p><code><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">htmltools::tagList()</a></code></p>
 
 
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Example 1----</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html" class="external-link">fluidPage</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>      inputId <span class="op">=</span> <span class="st">"trigger"</span>,</span></span>
+<span class="r-in"><span>      label <span class="op">=</span> <span class="st">"Trigger modal"</span>,</span></span>
+<span class="r-in"><span>      `data-micromodal-trigger` <span class="op">=</span> <span class="st">"modal-1"</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="fu">micromodal</span><span class="op">(</span></span></span>
+<span class="r-in"><span>      id <span class="op">=</span> <span class="st">"modal-1"</span>,</span></span>
+<span class="r-in"><span>      title <span class="op">=</span> <span class="st">"Hello, World!"</span>,</span></span>
+<span class="r-in"><span>      content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"Hi Mom,"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"Come see my first modal!"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="va">server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># Example 2----</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.posit.co/" class="external-link">shiny</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="va">server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/page.html" class="external-link">page</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    title <span class="op">=</span> <span class="st">"Micromodal"</span>,</span></span>
+<span class="r-in"><span>    theme <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/bs_theme.html" class="external-link">bs_theme</a></span><span class="op">(</span>version <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="co"># inform shiny to use {micromodal}:</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    <span class="co"># your normal UI code:</span></span></span>
+<span class="r-in"><span>    <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span></span>
+<span class="r-in"><span>      class <span class="op">=</span> <span class="st">"container"</span>,</span></span>
+<span class="r-in"><span>      <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        class <span class="op">=</span> <span class="st">"container my-5"</span>,</span></span>
+<span class="r-in"><span>        <span class="va">tags</span><span class="op">$</span><span class="fu">h1</span><span class="op">(</span><span class="st">"Micromodal.js in Shiny"</span>, class <span class="op">=</span> <span class="st">"mb-5"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="co"># trigger for "modal-1"</span></span></span>
+<span class="r-in"><span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          inputId <span class="op">=</span> <span class="st">"show_modal_1"</span>,</span></span>
+<span class="r-in"><span>          label <span class="op">=</span> <span class="st">"Exhibit 1"</span>,</span></span>
+<span class="r-in"><span>          class <span class="op">=</span> <span class="st">"btn-outline-primary px-3"</span>,</span></span>
+<span class="r-in"><span>          `data-micromodal-trigger` <span class="op">=</span> <span class="st">"modal-1"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        <span class="co"># trigger for "modal-2"</span></span></span>
+<span class="r-in"><span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html" class="external-link">actionButton</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          inputId <span class="op">=</span> <span class="st">"show_modal_2"</span>,</span></span>
+<span class="r-in"><span>          label <span class="op">=</span> <span class="st">"Exhibit 2"</span>,</span></span>
+<span class="r-in"><span>          class <span class="op">=</span> <span class="st">"btn-outline-primary px-3"</span>,</span></span>
+<span class="r-in"><span>          `data-micromodal-trigger` <span class="op">=</span> <span class="st">"modal-2"</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="co"># modal-1:</span></span></span>
+<span class="r-in"><span>      <span class="fu">micromodal</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        id <span class="op">=</span> <span class="st">"modal-1"</span>,</span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"🔒 Login"</span>,</span></span>
+<span class="r-in"><span>        content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html" class="external-link">textInput</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            inputId <span class="op">=</span> <span class="st">"name"</span>,</span></span>
+<span class="r-in"><span>            label <span class="op">=</span> <span class="st">"Name"</span>,</span></span>
+<span class="r-in"><span>            width <span class="op">=</span> <span class="st">"400px"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/passwordInput.html" class="external-link">passwordInput</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>            inputId <span class="op">=</span> <span class="st">"password"</span>,</span></span>
+<span class="r-in"><span>            label <span class="op">=</span> <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span></span>
+<span class="r-in"><span>              <span class="va">tags</span><span class="op">$</span><span class="fu">span</span><span class="op">(</span><span class="st">"Password"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>              <span class="va">tags</span><span class="op">$</span><span class="fu">span</span><span class="op">(</span><span class="st">"(required)"</span>, class <span class="op">=</span> <span class="st">"text-muted fw-light"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>            <span class="op">)</span>,</span></span>
+<span class="r-in"><span>            width <span class="op">=</span> <span class="st">"400px"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagAppendAttributes.html" class="external-link">tagAppendAttributes</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"mb-0"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span></span>
+<span class="r-in"><span>            <span class="st">"Must be atleast 6 characters long."</span>,</span></span>
+<span class="r-in"><span>            class <span class="op">=</span> <span class="st">"text-muted fw-light"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        footer <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">button</span><span class="op">(</span></span></span>
+<span class="r-in"><span>            class <span class="op">=</span> <span class="st">"modal__btn modal__btn-primary"</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"Continue"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">a</span><span class="op">(</span></span></span>
+<span class="r-in"><span>            href <span class="op">=</span> <span class="st">"#"</span>,</span></span>
+<span class="r-in"><span>            class <span class="op">=</span> <span class="st">"ms-3"</span>,</span></span>
+<span class="r-in"><span>            `data-micromodal-close` <span class="op">=</span> <span class="cn">NA</span>,</span></span>
+<span class="r-in"><span>            `aria-label` <span class="op">=</span> <span class="st">"Close this dialog window"</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"Cancel"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span>,</span></span>
+<span class="r-in"><span>      <span class="co"># modal-2:</span></span></span>
+<span class="r-in"><span>      <span class="fu">micromodal</span><span class="op">(</span></span></span>
+<span class="r-in"><span>        id <span class="op">=</span> <span class="st">"modal-2"</span>,</span></span>
+<span class="r-in"><span>        title <span class="op">=</span> <span class="st">"Micromodal 🔥"</span>,</span></span>
+<span class="r-in"><span>        content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"This is a completely accessible modal."</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span></span>
+<span class="r-in"><span>            <span class="st">"Try hitting the"</span>,</span></span>
+<span class="r-in"><span>            <span class="va">tags</span><span class="op">$</span><span class="fu">code</span><span class="op">(</span><span class="st">"tab"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"key* and notice how the focus stays"</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"within the modal itself. To close modal hit the"</span>,</span></span>
+<span class="r-in"><span>            <span class="va">tags</span><span class="op">$</span><span class="fu">code</span><span class="op">(</span><span class="st">"esc"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"button, click on the overlay or just click the close button."</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"*"</span>, <span class="va">tags</span><span class="op">$</span><span class="fu">code</span><span class="op">(</span><span class="st">"alt + tab"</span><span class="op">)</span>, <span class="st">"in safari"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span>,</span></span>
+<span class="r-in"><span>        footer <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">button</span><span class="op">(</span></span></span>
+<span class="r-in"><span>            class <span class="op">=</span> <span class="st">"modal__btn modal__btn-primary"</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"Continue"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span>,</span></span>
+<span class="r-in"><span>          <span class="va">tags</span><span class="op">$</span><span class="fu">button</span><span class="op">(</span></span></span>
+<span class="r-in"><span>            class <span class="op">=</span> <span class="st">"modal__btn ms-2"</span>,</span></span>
+<span class="r-in"><span>            `data-micromodal-close` <span class="op">=</span> <span class="cn">NA</span>,</span></span>
+<span class="r-in"><span>            `aria-label` <span class="op">=</span> <span class="st">"Close this dialog window"</span>,</span></span>
+<span class="r-in"><span>            <span class="st">"Close"</span></span></span>
+<span class="r-in"><span>          <span class="op">)</span></span></span>
+<span class="r-in"><span>        <span class="op">)</span></span></span>
+<span class="r-in"><span>      <span class="op">)</span></span></span>
+<span class="r-in"><span>    <span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html" class="external-link">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
