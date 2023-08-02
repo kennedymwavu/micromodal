@@ -19,6 +19,9 @@ See \code{\link[=micromodal]{micromodal()}} for a complete example.
 }
 \examples{
 if (interactive()) {
+  library(shiny)
+  library(micromodal)
+
   ui <- fluidPage(
     use_micromodal(),
     # the rest of your UI code
