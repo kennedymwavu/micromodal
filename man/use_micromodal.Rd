@@ -6,6 +6,22 @@
 \usage{
 use_micromodal()
 }
+\value{
+\code{\link[htmltools:tagList]{htmltools::tagList()}}
+}
 \description{
-Call this function once in your app's UI
+Call this function once in your app's UI.
+}
+\details{
+This function adds the dependencies needed for the modals.
+
+See \code{\link[=micromodal]{micromodal()}} for a complete example.
+}
+\examples{
+if (interactive()) {
+  ui <- fluidPage(
+    use_micromodal(),
+    # the rest of your UI code
+  )
+}
 }

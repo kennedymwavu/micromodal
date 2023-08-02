@@ -1,6 +1,18 @@
 #' Use micromodal
 #'
-#' Call this function once in your app's UI
+#' Call this function once in your app's UI.
+#'
+#' This function adds the dependencies needed for the modals.
+#'
+#' See [micromodal()] for a complete example.
+#' @return [htmltools::tagList()]
+#' @examples
+#' if (interactive()) {
+#'   ui <- fluidPage(
+#'     use_micromodal(),
+#'     # the rest of your UI code
+#'   )
+#' }
 #' @export
 use_micromodal <- \() {
   assets_dir <- system.file("assets", package = "micromodal")
