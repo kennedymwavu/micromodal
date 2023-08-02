@@ -8,6 +8,9 @@
 #' @return [htmltools::tagList()]
 #' @examples
 #' if (interactive()) {
+#'   library(shiny)
+#'   library(micromodal)
+#'
 #'   ui <- fluidPage(
 #'     use_micromodal(),
 #'     # the rest of your UI code
