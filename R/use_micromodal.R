@@ -1,6 +1,21 @@
 #' Use micromodal
 #'
-#' Call this function once in your app's UI
+#' Call this function once in your app's UI.
+#'
+#' This function adds the dependencies needed for the modals.
+#'
+#' See [micromodal()] for a complete example.
+#' @return [htmltools::tagList()]
+#' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   library(micromodal)
+#'
+#'   ui <- fluidPage(
+#'     use_micromodal(),
+#'     # the rest of your UI code
+#'   )
+#' }
 #' @export
 use_micromodal <- \() {
   assets_dir <- system.file("assets", package = "micromodal")
@@ -10,10 +25,5 @@ use_micromodal <- \() {
       call. = FALSE
     )
   }
-  htmltools::tagList(
-    get_dependencies(),
-    htmltools::tags$script(
-      htmltools::HTML("$(document).ready(function() {MicroModal.init();});")
-    )
-  )
+  htmltools::tagList(get_dependencies())
 }

@@ -14,15 +14,36 @@ knitr::opts_chunk$set(
 )
 ```
 
-The goal of micromodal is to create simple and elegant modal dialogs with
+## Getting started
+
+The goal of micromodal is to create simple and elegant modal dialogs which are 
+[WAI-ARIA guidelines](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal) compliant with
 minimal configuration.
 
-## Example
+Things to keep in mind:
+
+1. The modal's trigger (usually a button or a link) must have the attribute
+`data-micromodal-trigger` with a value of the modal's id. So if the modal has the id "modal-1", then you will have:
+
+```r
+`data-micromodal-trigger` = "modal-1"
+```
+
+2. If you need to add something to dismiss the modal (eg. button or link), give
+it the attribute `data-micromodal-close`. In `{shiny}` this is the equivalent of:
+
+```r
+`data-micromodal-close` = NA
+```
+    
+## Examples
 
 See [live demo here](https://mwavu.shinyapps.io/micromodal/).
 
-<details>
-<summary>Show code</summary>
+### Simple usage
+
+Though a bit long, this example clearly depicts all there is to know about
+using `{micromodal}`.
 
 ```r
 library(shiny)
@@ -126,6 +147,155 @@ ui <- bslib::page(
     )
   )
 )
+
+shinyApp(ui, server)
 ```
 
-</details>
+### With uiOutput + renderUI
+
+If need be, you can render the modal and it's trigger dynamically.
+
+#### I. Render modal
+
+```r
+library(shiny)
+library(micromodal)
+
+ui <- fluidPage(
+  use_micromodal(),
+  selectInput(
+    inputId = "selector",
+    label = "Pick a letter",
+    choices = letters
+  ),
+  actionButton(
+    inputId = "trigger",
+    label = "Trigger modal",
+    `data-micromodal-trigger` = "modal-1"
+  ),
+  uiOutput(outputId = "mymodal")
+)
+
+server <- \(input, output, session) {
+  output$mymodal <- renderUI({
+    tagList(
+      micromodal(
+        id = "modal-1",
+        title = "Rendered serverside",
+        content = tagList(
+          tags$p(
+            "You selected the letter '",
+            input$selector,
+            "'"
+          )
+        )
+      )
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+#### II. Render modal + trigger
+
+```r
+library(shiny)
+library(micromodal)
+
+ui <- fluidPage(
+  use_micromodal(),
+  selectInput(
+    inputId = "selector",
+    label = "Pick a letter",
+    choices = letters
+  ),
+  uiOutput(outputId = "mymodal")
+)
+
+server <- \(input, output, session) {
+  output$mymodal <- renderUI({
+    tagList(
+      actionButton(
+        inputId = "trigger",
+        label = "Trigger modal",
+        `data-micromodal-trigger` = "modal-1"
+      ),
+      micromodal(
+        id = "modal-1",
+        title = "Rendered serverside",
+        content = tagList(
+          tags$p(
+            "You selected the letter '",
+            input$selector,
+            "'"
+          )
+        )
+      )
+    )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+**NB: micromodal might not work with other `*Output` + `render*` eg. `plotOutput()`**
+
+### Inside modules
+
+As far as usage of `{micromodal}` in modules is concerned, I only need to
+remind you of one thing:
+
+> It's always a missing call to `NS()`
+
+Thank me later.
+
+```r
+library(shiny)
+library(micromodal)
+
+# module UI:
+sayhi_ui <- \(id) {
+  ns <- NS(id)
+  tagList(
+    tags$h1("Hello"),
+    actionLink(
+      inputId = ns("sayhi"),
+      label = "Say Hi",
+      `data-micromodal-trigger` = ns("greetings_modal")
+    ),
+    micromodal(
+      id = ns("greetings_modal"),
+      title = "Greetings folks!",
+      content = tags$p(
+        "I'd like to thank you for joining us here today."
+      )
+    )
+  )
+}
+
+# module server is not necessary in our case, just putting it here 
+# for formality:
+sayhi_server <- \(id) {
+  moduleServer(
+    id = id,
+    module = \(input, output, session) {
+      
+    }
+  )
+}
+
+ui <- bslib::page(
+  title = "In Modules",
+  theme = bslib::bs_theme(version = 5),
+  use_micromodal(),
+  tags$div(
+    class = "container",
+    sayhi_ui("hi")
+  )
+)
+
+server <- \(input, output, session) {}
+
+shinyApp(ui, server)
+```
