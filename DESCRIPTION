@@ -1,11 +1,10 @@
 Package: micromodal
-Title: Create pretty modal dialogs in shiny via Micromodal JS library
+Title: Create Simple and Elegant Modal Dialogs in Shiny via 'Micromodal' JavaScript Library
 Version: 0.0.0.9000
 Authors@R: 
-    person("Kennedy", "Mwavu", , "mwavukennedy@gmail.com", role = c("aut", "cre"),
+    person("Kennedy", "Mwavu", , "mwavukennedy@gmail.com", role = c("aut", "cre", "cph"),
            comment = c("Maintainer/developer of micromodal since 2023", ORCID = "0009-0006-3157-7234"))
-Description: Enables you to create WAI-ARIA guidelines compliant modal dialogs, 
-  with confidence and with minimal configuration.
+Description: Enables you to create accessible modal dialogs, with confidence and with minimal configuration.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
