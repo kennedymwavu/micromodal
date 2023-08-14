@@ -23,7 +23,7 @@ ui <- bslib::page(
     # modal-1:
     micromodal(
       id = "modal-1",
-      title = "🔒 Login",
+      title = "Login",
       content = tagList(
         textInput(
           inputId = "name",
@@ -60,7 +60,7 @@ ui <- bslib::page(
     # modal-2:
     micromodal(
       id = "modal-2",
-      title = "Micromodal 🔥",
+      title = "Micromodal",
       content = tagList(
         tags$p("This is a completely accessible modal."),
         tags$p(
