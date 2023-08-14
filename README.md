@@ -15,6 +15,12 @@ Modal dialogs for R Shiny via
 
 ## Installation
 
+To install the package from CRAN use:
+
+``` r
+install.packages("micromodal")
+```
+
 You can install the dev version of `{micromodal}` with:
 
 ``` r
@@ -114,5 +120,5 @@ This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-08-02 00:56:09 EAT"
+#> [1] "2023-08-14 23:43:14 EAT"
 ```
