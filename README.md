@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/micromodal)](https://CRAN.R-project.org/package=micromodal)
 [![R-CMD-check](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
@@ -118,5 +120,5 @@ This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-08-18 04:30:44 EAT"
+#> [1] "2023-08-18 04:38:04 EAT"
 ```
