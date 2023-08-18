@@ -14,6 +14,7 @@ knitr::opts_chunk$set(
 # micromodal
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/micromodal)](https://CRAN.R-project.org/package=micromodal)
 [![R-CMD-check](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 <!-- badges: end -->
@@ -21,6 +22,13 @@ knitr::opts_chunk$set(
 Modal dialogs for R Shiny via [Micromodal.js](https://github.com/Ghosh/micromodal).
 
 ## Installation
+
+To install the package from CRAN use:
+
+```r
+install.packages("micromodal")
+```
+
 
 You can install the dev version of `{micromodal}` with:
 
@@ -109,9 +117,6 @@ shinyApp(ui, server)
 ```
 
 - See [live demo here](https://mwavu.shinyapps.io/micromodal/).
-
-- Read the [Get started guide](./articles/micromodal.html).
-
 
 ## About
 

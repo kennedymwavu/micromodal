@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/micromodal)](https://CRAN.R-project.org/package=micromodal)
 [![R-CMD-check](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/kennedymwavu/micromodal/actions/workflows/R-CMD-check.yaml)
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
@@ -14,6 +16,12 @@ Modal dialogs for R Shiny via
 [Micromodal.js](https://github.com/Ghosh/micromodal).
 
 ## Installation
+
+To install the package from CRAN use:
+
+``` r
+install.packages("micromodal")
+```
 
 You can install the dev version of `{micromodal}` with:
 
@@ -104,15 +112,13 @@ shinyApp(ui, server)
 
 - See [live demo here](https://mwavu.shinyapps.io/micromodal/).
 
-- Read the [Get started guide](./articles/micromodal.html).
-
 ## About
 
-You’re reading the doc about version: 0.0.0.9000
+You’re reading the doc about version: 1.0.0
 
 This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-08-02 00:56:09 EAT"
+#> [1] "2023-08-18 04:38:04 EAT"
 ```
