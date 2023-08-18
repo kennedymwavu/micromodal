@@ -110,15 +110,13 @@ shinyApp(ui, server)
 
 - See [live demo here](https://mwavu.shinyapps.io/micromodal/).
 
-- Read the [Get started guide](./articles/micromodal.html).
-
 ## About
 
-You’re reading the doc about version: 0.0.0.9000
+You’re reading the doc about version: 1.0.0
 
 This README has been compiled on the:
 
 ``` r
 Sys.time()
-#> [1] "2023-08-14 23:43:14 EAT"
+#> [1] "2023-08-18 04:30:44 EAT"
 ```
