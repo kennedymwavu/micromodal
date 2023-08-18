@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">micromodal</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,9 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -112,12 +115,12 @@ about using <a href="https://github.com/kennedymwavu/micromodal" class="external
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/kennedymwavu/micromodal" class="external-link">micromodal</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">server</span> <span class="op">&lt;-</span> \<span class="op">(</span><span class="va">input</span>, <span class="va">output</span>, <span class="va">session</span><span class="op">)</span> <span class="op">{</span></span>
-<span></span>
+<span>  </span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/page.html" class="external-link">page</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bslib/man/page.html" class="external-link">page</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"Micromodal"</span>,</span>
-<span>  theme <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/bs_theme.html" class="external-link">bs_theme</a></span><span class="op">(</span>version <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
+<span>  theme <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bslib/man/bs_theme.html" class="external-link">bs_theme</a></span><span class="op">(</span>version <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
 <span>  <span class="co"># inform shiny to use {micromodal}:</span></span>
 <span>  <span class="fu"><a href="../reference/use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="co"># your normal UI code:</span></span>
@@ -144,7 +147,7 @@ about using <a href="https://github.com/kennedymwavu/micromodal" class="external
 <span>    <span class="co"># modal-1:</span></span>
 <span>    <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
 <span>      id <span class="op">=</span> <span class="st">"modal-1"</span>,</span>
-<span>      title <span class="op">=</span> <span class="st">"🔒 Login"</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Login"</span>,</span>
 <span>      content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html" class="external-link">textInput</a></span><span class="op">(</span></span>
 <span>          inputId <span class="op">=</span> <span class="st">"name"</span>,</span>
@@ -181,7 +184,7 @@ about using <a href="https://github.com/kennedymwavu/micromodal" class="external
 <span>    <span class="co"># modal-2:</span></span>
 <span>    <span class="fu"><a href="../reference/micromodal.html">micromodal</a></span><span class="op">(</span></span>
 <span>      id <span class="op">=</span> <span class="st">"modal-2"</span>,</span>
-<span>      title <span class="op">=</span> <span class="st">"Micromodal 🔥"</span>,</span>
+<span>      title <span class="op">=</span> <span class="st">"Micromodal"</span>,</span>
 <span>      content <span class="op">=</span> <span class="fu"><a href="https://rstudio.github.io/htmltools/reference/tagList.html" class="external-link">tagList</a></span><span class="op">(</span></span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span><span class="st">"This is a completely accessible modal."</span><span class="op">)</span>,</span>
 <span>        <span class="va">tags</span><span class="op">$</span><span class="fu">p</span><span class="op">(</span></span>
@@ -348,9 +351,9 @@ I only need to remind you of one thing:</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/page.html" class="external-link">page</a></span><span class="op">(</span></span>
+<span><span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bslib/man/page.html" class="external-link">page</a></span><span class="op">(</span></span>
 <span>  title <span class="op">=</span> <span class="st">"In Modules"</span>,</span>
-<span>  theme <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rstudio.github.io/bslib/reference/bs_theme.html" class="external-link">bs_theme</a></span><span class="op">(</span>version <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
+<span>  theme <span class="op">=</span> <span class="fu">bslib</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/bslib/man/bs_theme.html" class="external-link">bs_theme</a></span><span class="op">(</span>version <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,</span>
 <span>  <span class="fu"><a href="../reference/use_micromodal.html">use_micromodal</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  <span class="va">tags</span><span class="op">$</span><span class="fu">div</span><span class="op">(</span></span>
 <span>    class <span class="op">=</span> <span class="st">"container"</span>,</span>
